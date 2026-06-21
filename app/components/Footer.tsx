@@ -7,7 +7,7 @@ export default function Footer() {
           <img
             src="/logo.jpg"
             alt="Torrenz Gaming"
-            style={{ height: 40, width: "auto", borderRadius: 8, objectFit: "contain", filter: "drop-shadow(0 0 8px rgba(168,85,247,0.35))" }}
+            style={{ height: 40, width: 40, borderRadius: "50%", objectFit: "cover", background: "#fff", boxShadow: "0 0 12px rgba(168,85,247,0.4)" }}
           />
           <div>
             <b style={{ color: "#f8fbff", fontFamily: "Orbitron, sans-serif", letterSpacing: "0.08em" }}>TORRENZ GAMING</b>

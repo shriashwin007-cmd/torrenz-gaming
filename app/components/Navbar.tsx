@@ -31,9 +31,11 @@ export default function Navbar({ onChatOpen }: { onChatOpen: () => void }) {
             src="/logo.jpg"
             alt="Torrenz Gaming"
             style={{
-              height: 48, width: "auto", borderRadius: 10,
-              objectFit: "contain",
-              filter: "drop-shadow(0 0 10px rgba(168,85,247,0.45))",
+              height: 48, width: 48,
+              borderRadius: "50%",
+              objectFit: "cover",
+              background: "#fff",
+              boxShadow: "0 0 18px rgba(168,85,247,0.5)",
             }}
           />
           <div>
