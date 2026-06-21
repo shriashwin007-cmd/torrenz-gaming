@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #a855f7;
+  --primary-light: #d8b4fe;
+  --white: #ffffff;
+  --pink: #e879f9;
+  --green: #25d366;
+  --line: rgba(255, 255, 255, 0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  background-color: #08050f;
+  background-image:
+    radial-gradient(circle at 12% 12%, rgba(168, 85, 247, 0.18) 0%, transparent 28rem),
+    radial-gradient(circle at 80% 5%, rgba(232, 121, 249, 0.12) 0%, transparent 30rem);
+  color: #f8fbff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body { touch-action: pan-y; }
+
+/* Animated grid overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(168, 85, 247, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 80%);
+  mask-image: linear-gradient(to bottom, black 0%, transparent 80%);
+  animation: gridScroll 22s linear infinite;
+}
+
+@keyframes gridScroll {
+  from { transform: translateY(0); }
+  to   { transform: translateY(56px); }
+}
+
+/* Glass card */
+.glass {
+  background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* Gradient text — purple to white */
+.grad {
+  background: linear-gradient(92deg, #a855f7 0%, #ffffff 55%, #e879f9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Pulse dot */
+.pulse-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #25d366;
+  box-shadow: 0 0 14px #25d366;
+  animation: pulseDot 2s ease infinite;
+}
+@keyframes pulseDot {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:.6; transform:scale(1.25); }
+}
+
+/* Section wrapper */
+.wrap {
+  width: min(1160px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.img-placeholder {
+  background: linear-gradient(135deg, rgba(168,85,247,0.12), rgba(232,121,249,0.18), rgba(255,255,255,0.06));
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.8rem;
+  font-family: "Rajdhani", sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Add-on card animations */
+@keyframes floatUp {
+  0%   { transform: translateY(0)    scale(1); opacity: 0.9; }
+  100% { transform: translateY(-80px) scale(0); opacity: 0; }
+}
+@keyframes shake {
+  0%,100% { transform: rotate(0deg)  scale(1.08); }
+  20%     { transform: rotate(-8deg) scale(1.14); }
+  40%     { transform: rotate(8deg)  scale(1.14); }
+  60%     { transform: rotate(-5deg) scale(1.1); }
+  80%     { transform: rotate(5deg)  scale(1.1); }
+}
+@keyframes burstFly {
+  0%   { transform: translate(0, 0)                  scale(1); opacity: 1; }
+  100% { transform: translate(var(--vx), var(--vy))  scale(0); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .wrap { width: min(1160px, calc(100% - 28px)); }
+  section[id="rooms"],
+  section[id="add-ons"],
+  section[id="gallery"],
+  section[id="pricing"],
+  section[id="book"],
+  section[id="location"] {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrap { width: calc(100% - 24px); }
+  section[id="rooms"],
+  section[id="add-ons"],
+  section[id="gallery"],
+  section[id="pricing"],
+  section[id="book"],
+  section[id="location"] {
+    padding-top: 44px !important;
+    padding-bottom: 44px !important;
+  }
+  body::before { background-size: 38px 38px; opacity: 0.6; }
+  @keyframes gridScroll {
+    from { transform: translateY(0); }
+    to   { transform: translateY(38px); }
+  }
+  .glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.32);
+  }
+  body { font-size: 15px; }
+}
+
+@media (hover: none) {
+  .glass { transition: none; }
+}
