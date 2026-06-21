@@ -13,6 +13,7 @@ import Footer       from "@/app/components/Footer";
 import CartPanel    from "@/app/components/CartPanel";
 import ChatWidget   from "@/app/components/ChatWidget";
 import FloatActions from "@/app/components/FloatActions";
+import { GooeyMarquee } from "@/app/components/GooeyMarquee";
 
 export default function Home() {
   const [chatOpen, setChatOpen] = useState(false);
@@ -25,6 +26,7 @@ export default function Home() {
       <Intro />
       <main style={{ position: "relative", zIndex: 1 }}>
         <Hero     onChatOpen={open} />
+        <GooeyMarquee text="TORRENZ GAMING · PS5 LOUNGE · PERAMBUR · CHENNAI · " speed={18} />
         <Rooms />
         <AddOns />
         <Gallery />
