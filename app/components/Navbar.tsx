@@ -26,13 +26,16 @@ export default function Navbar({ onChatOpen }: { onChatOpen: () => void }) {
 
         {/* Brand */}
         <a href="#home" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
-          <div style={{
-            width: 48, height: 48, borderRadius: 12,
-            background: "linear-gradient(135deg, #a855f7, #e879f9)",
-            display: "grid", placeItems: "center",
-            fontFamily: "Orbitron, sans-serif", fontWeight: 900, fontSize: "1.2rem", color: "#fff",
-            boxShadow: "0 0 18px rgba(168,85,247,0.45)",
-          }}>TZ</div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo.jpg"
+            alt="Torrenz Gaming"
+            style={{
+              height: 48, width: "auto", borderRadius: 10,
+              objectFit: "contain",
+              filter: "drop-shadow(0 0 10px rgba(168,85,247,0.45))",
+            }}
+          />
           <div>
             <div style={{ fontFamily: "Orbitron, sans-serif", fontWeight: 900, fontSize: "1rem", letterSpacing: "0.1em", color: "#f8fbff" }}>
               TORRENZ
